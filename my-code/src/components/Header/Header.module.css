@@ -1,0 +1,9 @@
+.app-header{
+    display: flex;
+    padding-top: 25px;
+    padding-bottom: calc(25px / 2);
+}
+
+.app-logo{
+    align-items: left;
+}
