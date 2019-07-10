@@ -1,0 +1,28 @@
+.app-search{
+    width: 100%;
+    position: relative;
+}
+
+.app-search-icon{
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    max-width: 16px;
+    max-height: 16px;
+}
+
+.search-input{
+    width: calc(100% - 40px);
+    padding-top: calc(25px/2);
+    padding-bottom: calc(25px/2);
+    margin-top: calc(25px/2);
+    padding-left: 40px;
+    font-size: 16px;
+    letter-spacing: 0.17px;  
+    border-radius: 4px;
+    border: 0;
+}
+
+.search-input::placeholder{
+    color: #7A8C99
+}
