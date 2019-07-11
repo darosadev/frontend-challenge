@@ -6,37 +6,46 @@ import styles from './App.module.css';
 import Header from '../../components/Header/Header';
 import Search from '../../components/Search/Search';
 import Results from '../../components/Results/Results';
+import Empty from '../../components/Empty/Empty';
 
 
 //Import Assets
 import logo from '../../assets/logo/logo.svg'
 import icon from '../../assets/icons/icon-magnifier-grey.svg'
 
-
-
 class App extends Component {
 
   state = {
     theSearch: null,
     isLoaded: false,
-    empty: true,
     movies: []
   }
 
   resultList = null;
+  emptyScreen = null;
 
   render(){
 
     if ( this.state.movies.Search !== undefined ) {
 
       this.resultList = (
-        <div>
+        <div className={styles.searchResults}>
           <Results
             list={this.state.movies.Search}
           />
         </div>
       );
+      this.emptyScreen = null;
 
+    }
+
+    else {
+      this.emptyScreen = (
+        <div>
+          <Empty/>
+        </div>
+      );
+      this.resultList = null;
     }
 
     return (
@@ -48,6 +57,8 @@ class App extends Component {
               clicked={this.performSearch}
               icon={icon}
             />
+
+           {this.emptyScreen}
 
            {this.resultList}
 
