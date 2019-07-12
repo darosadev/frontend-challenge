@@ -17,8 +17,9 @@ class App extends Component {
 
   state = {
     theSearch: null,
-    isLoaded: false,
-    movies: []
+    hasDetails: false,
+    movies: [],
+    movie: []
   }
 
   resultList = null;
@@ -32,6 +33,7 @@ class App extends Component {
         <div className={styles.searchResults}>
           <Results
             list={this.state.movies.Search}
+            displayResults={this.displayResults}
           />
         </div>
       );
@@ -54,7 +56,6 @@ class App extends Component {
             <Header appLogo={logo}/>
             <Search 
               changed={this.searchMovie}
-              clicked={this.performSearch}
               icon={icon}
             />
 
@@ -69,11 +70,12 @@ class App extends Component {
   }
   
   searchMovie = (event) => {
-    this.setState({movies: []});
+    //this.setState({movies: []});
     let concatSearch = event.target.value.split(' ').join('+');
     let api = 'http://www.omdbapi.com/?apikey=d4dc8e70&s=';
     let url = api + concatSearch;
     let lastChar = url[url.length-1];
+
 
     this.setState({theSearch: concatSearch});
 
@@ -87,11 +89,37 @@ class App extends Component {
     .then(res => res.json())
     .then(json => {
       this.setState({
-        isLoaded: true,
         movies:json
       })
     })
+
+    //console.log(this.state.movies)
   }
+
+  
+  displayResults = (index) => {
+
+    
+    const theMovie = this.state.movies.Search[index];
+    const imdbID = theMovie.imdbID;
+
+        let api = 'http://www.omdbapi.com/?apikey=d4dc8e70&i=';
+        let url = api + imdbID;
+      
+        fetch(url)
+        .then(res => res.json())
+        .then(json => {
+          this.setState({
+            hasDetails: true,
+            movie:json
+          })
+          console.log(this.state.movie)
+        })
+
+       
+        
+  }
+  
 
 }
 
