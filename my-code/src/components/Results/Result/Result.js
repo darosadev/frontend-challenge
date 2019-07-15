@@ -17,9 +17,6 @@ const result = ( props ) => {
                     <p className={styles.year}>
                         {props.year}
                     </p>
-                    <p>
-                        {props.index} 
-                    </p>
                 </div>
             </div>
         </div>

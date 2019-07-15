@@ -14,7 +14,7 @@
     top: 75px;
 }
 
-.hieDetails{
+.hideDetails{
     transition: 0.3s top ease-in-out;
     top: 100%;
 }
@@ -31,6 +31,7 @@
 .details-info{
     max-width: 680px;
     flex: 1;
+    padding-right: 20px;
 }
 
 .details-poster img{
@@ -93,7 +94,7 @@
 }
 
 .info-ratings-imdb{
-    max-width: 120px;
+    max-width: 125px;
     text-align: left;
     max-height: 35px;
     border: 2px solid #353F4C;
@@ -177,4 +178,38 @@
     max-width: 130px;
     display: inline-block;
     vertical-align: top;
+}
+
+@media screen and (max-width: 768px) { 
+    .details-whole {
+        flex-direction: column-reverse;
+    }
+    
+    .details-poster {
+        margin-bottom: 50px;
+        width: 100%;
+        max-width: 300px;
+        align-self: center;
+    }
+    
+    .showDetails {
+        position: absolute;
+    }
+    
+    .details-info {
+        padding-right: 0;
+    }
+    
+    .info-title h1 {
+        font-size: 40px;
+    }
+    
+    .details-info {
+        align-self: center;
+    }
+    
+    .more-info-plot {
+        max-width: 100%;
+    }
+    
 }

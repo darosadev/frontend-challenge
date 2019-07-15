@@ -1,9 +1,17 @@
 .title{
     color: white;
+    margin: 0;
+    padding-bottom: 5px;
+    font-size: 20px;
+    letter-spacing: 0.22px;
+    font-weight: 400;
 }
 
 .year{
     color: white;
+    margin: 0;
+    padding-bottom: 10px;
+    font-weight: 400;
 }
 
 .movieWhole {
@@ -11,7 +19,7 @@
     max-height: 240px;
     display: inline-block;
     overflow: hidden;
-    margin: 10px 20px 10px 0;
+    /*margin: 10px 20px 10px 0;*/
     position: relative;
     border-radius: 4px;
 }
@@ -42,4 +50,6 @@
 
 .movieBackBlock{
     align-self: flex-end;
+    width: 100%;
+    padding: 0 10px;
 }

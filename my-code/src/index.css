@@ -15,18 +15,22 @@ code {
 .showDetails{
   transition: 0.3s top ease-in-out;
   top: 65px;
-  position: fixed;
-  width: 100%;
+  position: absolute;
+  width: 90%;
   height: calc( 100% - 65px);
   background-color: #0A1014;
   left: 0;
+  right: 0;
+  margin: auto;
 }
 
 .hideDetails{
   transition: 0.3s top ease-in-out;
   top: 100%;
   position: fixed;
-  width: 100%;
+  width: 90%;
   left: 0;
+  right: 0;
+  margin: auto;
 }
 

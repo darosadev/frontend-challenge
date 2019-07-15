@@ -117,7 +117,7 @@ class App extends Component {
   searchMovie = (event) => {
     //this.setState({movies: []});
     let concatSearch = event.target.value.split(' ').join('+');
-    let api = 'http://www.omdbapi.com/?apikey=d4dc8e70&s=';
+    let api = 'http://www.omdbapi.com/?apikey=d4dc8e70&type=movie&s=';
     let url = api + concatSearch;
     let lastChar = url[url.length-1];
 
