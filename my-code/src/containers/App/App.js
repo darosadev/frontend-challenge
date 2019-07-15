@@ -7,23 +7,28 @@ import Header from '../../components/Header/Header';
 import Search from '../../components/Search/Search';
 import Results from '../../components/Results/Results';
 import Empty from '../../components/Empty/Empty';
+import Details from '../../components/Details/Details';
 
 
 //Import Assets
 import logo from '../../assets/logo/logo.svg'
 import icon from '../../assets/icons/icon-magnifier-grey.svg'
+import imdbIcon from '../../assets/logo/logo-imdb.svg';
+import rtIcon from '../../assets/logo/logo-rotten-tomatoes.svg';
+import goBackBtn from '../../assets/icons/icon-arrow-grey.svg';
 
 class App extends Component {
 
   state = {
     theSearch: null,
-    hasDetails: false,
     movies: [],
-    movie: []
+    movie: [],
+    detailsDivClass: 'hideDetails'
   }
 
   resultList = null;
   emptyScreen = null;
+  detailsDiv = null;
 
   render(){
 
@@ -50,6 +55,44 @@ class App extends Component {
       this.resultList = null;
     }
 
+    if (this.state.movie.Title === undefined){
+      this.detailsDiv = (
+        <div>
+          <Details
+            detailsDivClass={this.state.detailsDivClass}
+          />
+        </div>
+      )
+    }
+
+    else{
+      console.log(this.state.movie)
+
+      this.detailsDiv = (
+        <div>
+          <Details
+            duration={this.state.movie.Runtime}
+            year={this.state.movie.Year}
+            rating={this.state.movie.Rated}
+            title={this.state.movie.Title}
+            imdbIcon={imdbIcon}
+            imdbRating={this.state.movie.Ratings[0].Value}
+            rtIcon={rtIcon}
+            rtRating={this.state.movie.Ratings[1].Value}
+            plot={this.state.movie.Plot}
+            cast={this.state.movie.Actors}
+            genre={this.state.movie.Genre}
+            director={this.state.movie.Director}
+            poster={this.state.movie.Poster}
+            goBack={goBackBtn}
+            goBackAction={this.goBackToSearch}
+            detailsDivClass={this.state.detailsDivClass}
+          />
+        </div>
+      );
+    }
+
+
     return (
       <div className={styles.App}>
           <div className={styles.container}>
@@ -62,6 +105,8 @@ class App extends Component {
            {this.emptyScreen}
 
            {this.resultList}
+
+           {this.detailsDiv}
 
           </div>
       </div>
@@ -110,14 +155,23 @@ class App extends Component {
         .then(res => res.json())
         .then(json => {
           this.setState({
-            hasDetails: true,
-            movie:json
+            movie:json,
+            detailsDivClass:'showDetails'
           })
-          console.log(this.state.movie)
-        })
+          //console.log(this.state.movie)
+        })            
+  }
 
-       
-        
+
+/*  componentDidUpdate(){
+    this.goBackToSearch();
+  }*/
+
+  goBackToSearch = () => {
+    this.setState({
+      detailsDivClass:'hideDetails'
+    })
+    console.log('hey');
   }
   
 

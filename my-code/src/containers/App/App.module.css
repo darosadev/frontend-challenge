@@ -1,11 +1,8 @@
-@import-normalize; /* bring in normalize.css styles */
-
-/* rest of app styles */
-
 .App {
   text-align: center;
   background-color: #0A1014;
-  min-height: 100vh;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .container {

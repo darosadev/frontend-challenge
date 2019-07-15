@@ -1,11 +1,12 @@
 .app-search{
     width: 100%;
     position: relative;
+    padding-top: 65px;
 }
 
 .app-search-icon{
     position: absolute;
-    top: 50%;
+    bottom: 14px;
     left: 10px;
     max-width: 16px;
     max-height: 16px;

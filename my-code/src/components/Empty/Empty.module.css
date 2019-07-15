@@ -1,0 +1,32 @@
+.no-results{
+    max-width: 400px;
+    margin: 0 auto;
+    padding-top: 225px;
+}
+
+.no-results img{
+    width: 100%;
+}
+
+.no-results-text{
+    padding-top: 15px;
+}
+
+.no-results-text h4, .no-results-text h5{
+    margin: 0;
+}
+
+.no-results-text h4{
+    padding-bottom: 10px;
+    color: #ffffff;
+    font-size: 24px;
+    letter-spacing: 0.26px;
+    font-weight: 400;
+}
+
+.no-results-text h5{
+    color: #7A8C99;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 0.17px;
+}
